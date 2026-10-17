@@ -1,4 +1,5 @@
 import type { Product } from "@/types/product";
+import { asset } from "@/lib/asset";
 
 const finishes = (sku: string, base: number): Product["variants"] => [
   {
@@ -318,6 +319,10 @@ export const products: Product[] = [
     relatedIds: ["p-mosaic", "p-onyx"],
   },
 ];
+
+for (const product of products) {
+  product.images = product.images.map(asset);
+}
 
 export const publishedProducts = products.filter((p) => p.published);
 

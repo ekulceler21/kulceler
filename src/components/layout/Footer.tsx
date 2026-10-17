@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { STORE } from "@/data/site";
+import { asset } from "@/lib/asset";
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <Link to="/" className="inline-block" aria-label="Külçeler ana sayfa">
             <img
-              src="./media/logokulceler-2.png"
+              src={asset("/media/logokulceler-2.png")}
               alt="Külçeler"
               className="h-10 w-auto object-contain"
               width={160}

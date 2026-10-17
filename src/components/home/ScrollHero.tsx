@@ -3,19 +3,20 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { STORE } from "@/data/site";
+import { asset } from "@/lib/asset";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { IconWhatsApp } from "@/components/ui/Icon";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const PARTNER_LOGOS = [
-  { src: "/media/silestone22.png", alt: "Silestone" },
-  { src: "/media/grado2.png", alt: "Grado" },
-  { src: "/media/full-logo.png", alt: "Full" },
-  { src: "/media/coante.png", alt: "Coante" },
-  { src: "/media/cimstone-logo-600.png", alt: "Cimstone" },
-  { src: "/media/maestro.png", alt: "Maestro" },
-  { src: "/media/calisco_logo_ing.png", alt: "Calisco" },
+  { src: asset("/media/silestone22.png"), alt: "Silestone" },
+  { src: asset("/media/grado2.png"), alt: "Grado" },
+  { src: asset("/media/full-logo.png"), alt: "Full" },
+  { src: asset("/media/coante.png"), alt: "Coante" },
+  { src: asset("/media/cimstone-logo-600.png"), alt: "Cimstone" },
+  { src: asset("/media/maestro.png"), alt: "Maestro" },
+  { src: asset("/media/calisco_logo_ing.png"), alt: "Calisco" },
 ];
 
 export function ScrollHero() {
@@ -83,7 +84,7 @@ export function ScrollHero() {
     >
       <div className="bg-image-layer absolute inset-0 z-0">
         <img
-          src="./media/sskulceler.png"
+          src={asset("/media/sskulceler.png")}
           alt=""
           className="h-full w-full object-cover object-center"
           width={1920}
@@ -97,7 +98,7 @@ export function ScrollHero() {
           ref={videoRef}
           id="sink-video"
           className="h-full w-full object-cover"
-          src="./media/scrollkulceler.mp4"
+          src={asset("/media/scrollkulceler.mp4")}
           muted
           playsInline
           preload="auto"

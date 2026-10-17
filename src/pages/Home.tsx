@@ -4,6 +4,7 @@ import { ProductGrid } from "@/components/product/ProductCard";
 import { publishedProducts } from "@/data/products";
 import { STORE } from "@/data/site";
 import { whatsappUrl } from "@/lib/whatsapp";
+import { asset } from "@/lib/asset";
 
 export function Home() {
   const featured = publishedProducts.filter((p) => p.featured);
@@ -42,7 +43,7 @@ export function Home() {
             </div>
             <div className="flex-shrink-0 self-center md:self-start pt-2">
               <img
-                src="./media/logo.svg"
+                src={asset("/media/logo.svg")}
                 alt="Logo"
                 className="h-24 w-auto object-contain brightness-0 invert opacity-90"
               />

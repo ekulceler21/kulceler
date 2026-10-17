@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NAV_LINKS } from "@/data/site";
+import { asset } from "@/lib/asset";
 import { publishedProducts } from "@/data/products";
 import { searchProducts } from "@/lib/search";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
@@ -85,7 +86,7 @@ export function Header() {
 
         <Link to="/" className="flex min-w-0 items-center gap-2" aria-label="Külçeler ana sayfa">
           <img
-            src="./media/logokulceler-2.png"
+            src={asset("/media/logokulceler-2.png")}
             alt="Külçeler"
             className="h-9 w-auto object-contain"
             width={160}

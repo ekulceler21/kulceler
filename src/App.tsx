@@ -13,11 +13,13 @@ import { Favorites } from "@/pages/Favorites";
 import { Contact } from "@/pages/Contact";
 import { NotFound } from "@/pages/NotFound";
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
+
 export default function App() {
   return (
     <CartProvider>
       <FavoritesProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={routerBasename}>
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
