@@ -85,7 +85,7 @@ export function Header() {
 
         <Link to="/" className="flex min-w-0 items-center gap-2" aria-label="Külçeler ana sayfa">
           <img
-            src="/media/logokulceler-2.png"
+            src="./media/logokulceler-2.png"
             alt="Külçeler"
             className="h-9 w-auto object-contain"
             width={160}

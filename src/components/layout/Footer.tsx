@@ -8,7 +8,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <Link to="/" className="inline-block" aria-label="Külçeler ana sayfa">
             <img
-              src="/media/logokulceler-2.png"
+              src="./media/logokulceler-2.png"
               alt="Külçeler"
               className="h-10 w-auto object-contain"
               width={160}

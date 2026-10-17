@@ -42,7 +42,7 @@ export function Home() {
             </div>
             <div className="flex-shrink-0 self-center md:self-start pt-2">
               <img
-                src="/media/logo.svg"
+                src="./media/logo.svg"
                 alt="Logo"
                 className="h-24 w-auto object-contain brightness-0 invert opacity-90"
               />

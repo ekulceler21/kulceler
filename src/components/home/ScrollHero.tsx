@@ -83,7 +83,7 @@ export function ScrollHero() {
     >
       <div className="bg-image-layer absolute inset-0 z-0">
         <img
-          src="/media/sskulceler.png"
+          src="./media/sskulceler.png"
           alt=""
           className="h-full w-full object-cover object-center"
           width={1920}
@@ -97,7 +97,7 @@ export function ScrollHero() {
           ref={videoRef}
           id="sink-video"
           className="h-full w-full object-cover"
-          src="/media/scrollkulceler.mp4"
+          src="./media/scrollkulceler.mp4"
           muted
           playsInline
           preload="auto"
