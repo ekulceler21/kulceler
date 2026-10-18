@@ -34,24 +34,26 @@ export function ScrollHero() {
     let ctx: gsap.Context | undefined;
     let killed = false;
 
+    // Mobilde video currentTime güncellemeleri kasma yapabildiği için touch-action ve native playback rate optimizasyonu
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
     const setup = () => {
       if (killed) return;
       const duration = video.duration || 10;
       video.pause();
-
-      const isMobile = window.innerWidth < 768;
-
       ctx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=3000",
-            scrub: isMobile ? 1.5 : 0.5,
+            end: "+=2500",
+            scrub: true,
             pin: true,
-            pinSpacing: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
+            fastScrollEnd: true,
+            preventOverlaps: true,
           },
         });
         tl.fromTo(
