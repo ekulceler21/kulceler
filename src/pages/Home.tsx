@@ -40,12 +40,21 @@ export function Home() {
                 {STORE.demoNotice}
               </p>
             </div>
-            <div className="flex-shrink-0 self-center md:self-start pt-2">
+            <div className="flex-shrink-0 self-center md:self-start pt-2 flex flex-col items-center md:items-end gap-6">
               <img
                 src={asset("/media/logo.svg")}
                 alt="Logo"
                 className="h-24 w-auto object-contain brightness-0 invert opacity-90"
               />
+              <div className="grid grid-cols-4 gap-4 items-center justify-items-center max-w-[280px]">
+                <img src={asset("/media/silestone22.png")} alt="Silestone" className="h-6 w-auto object-contain brightness-0 invert opacity-80" />
+                <img src={asset("/media/grado2.png")} alt="Grado" className="h-6 w-auto object-contain brightness-0 invert opacity-80" />
+                <img src={asset("/media/full-logo.png")} alt="Full" className="h-6 w-auto object-contain brightness-0 invert opacity-80" />
+                <img src={asset("/media/coante.png")} alt="Coante" className="h-6 w-auto object-contain brightness-0 invert opacity-80" />
+                <img src={asset("/media/cimstone-logo-600.png")} alt="Cimstone" className="h-6 w-auto object-contain brightness-0 invert opacity-80" />
+                <img src={asset("/media/maestro.png")} alt="Maestro" className="h-6 w-auto object-contain brightness-0 invert opacity-80" />
+                <img src={asset("/media/calisco_logo_ing.png")} alt="Calisco" className="h-6 w-auto object-contain brightness-0 invert opacity-80" />
+              </div>
             </div>
           </div>
 
