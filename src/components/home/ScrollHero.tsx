@@ -38,19 +38,16 @@ export function ScrollHero() {
       if (killed) return;
       const duration = video.duration || 10;
       video.pause();
-      
+
       const isMobile = window.innerWidth < 768;
-      if (isMobile && typeof ScrollTrigger.normalizeScroll === "function") {
-        ScrollTrigger.normalizeScroll(true);
-      }
 
       ctx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: isMobile ? "+=800" : "+=3000",
-            scrub: isMobile ? true : 0.5,
+            end: "+=3000",
+            scrub: isMobile ? 1.5 : 0.5,
             pin: true,
             pinSpacing: true,
             anticipatePin: 1,
