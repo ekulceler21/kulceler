@@ -107,15 +107,16 @@ export function ScrollHero() {
         <div className="absolute inset-0 bg-obsidian/40" />
       </div>
 
-      <div className="absolute inset-0 z-[0.5] flex items-center justify-center pointer-events-auto">
+      <div className="absolute inset-0 z-[1.5] flex items-center justify-center pointer-events-auto">
         {/* @ts-ignore */}
         <model-viewer
           src={asset("/media/model.glb")}
           alt="3D Eviye"
           camera-controls
           disable-zoom
+          touch-action="pan-y"
           interaction-prompt="none"
-          style={{ width: "100%", height: "100%", background: "transparent" }}
+          style={{ width: "100%", height: "100%", background: "transparent", touchAction: "none" }}
         />
       </div>
 
