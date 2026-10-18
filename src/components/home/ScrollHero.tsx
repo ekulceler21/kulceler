@@ -39,15 +39,18 @@ export function ScrollHero() {
       const duration = video.duration || 10;
       video.pause();
       ctx = gsap.context(() => {
+        const isMobile = window.innerWidth < 768;
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=3000",
-            scrub: 0.5,
+            end: isMobile ? "+=1500" : "+=3000",
+            scrub: isMobile ? true : 0.5,
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
+            fastScrollEnd: true,
+            preventOverlaps: true,
           },
         });
         tl.fromTo(
