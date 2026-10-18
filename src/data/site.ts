@@ -11,7 +11,8 @@ export const STORE = {
   instagramUrl: "https://www.instagram.com/kulcelerquartzsink",
   address: "Zafer, Yavuz Selim Cd. No:4, 20020 Denizli Merkezefendi/Denizli",
   mapsQuery: "Zafer, Yavuz Selim Cd. No:4, 20020 Denizli Merkezefendi/Denizli",
-  demoNotice: "",
+  demoNotice:
+    "Şirketimizin ürettiği kuvars eviyelerimiz, bulunan kuvars markalarının çıktılarını kullanarak 5 parçadan üretilmektedir. Döküm veya benzeri bir yöntem uygulanmamaktadır. Üretmiş olduğumuz kuvars eviyelerimizin dıştan kaplamış olduğumuz yerde polyester esaslı reçine sayesinde kuvars lavabolarımız su sızdırması engellenmiş olup sağlamlığı artırılmıştır. Eviye tabanında, suyun gidere düzgün bir şekilde akmasını sağlamak için gidere doğru bir eğim oluşturduk. Kuvars lavabolarımız 8 yıllık bir Ar-Ge sürecinden geçmiş olup mülkiyet hukuku kapsamında tescillidir. 2018 yılında firmamızın başladığı yerde kuvars eviyelerini sağlam ve emin adımlarla geliştirerek, kayıt Ar-Ge ve test aşamalarını günümüze kadar emin adımlarla devam ettirdik. Daha önce yapılmamış bu üretim tesisi ile devam ettiğimiz kuvars eviyelerimiz, mutfaklarınızda çeşitli renk ve desen seçenekleriyle kuvars tezgahınızdaki şıklık bir bütün oluşturuyor.",
 } as const;
 
 export const NAV_LINKS = [
