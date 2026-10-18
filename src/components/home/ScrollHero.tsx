@@ -49,8 +49,8 @@ export function ScrollHero() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: isMobile ? "+=1000" : "+=3000",
-            scrub: isMobile ? 0.1 : 0.5,
+            end: isMobile ? "+=800" : "+=3000",
+            scrub: isMobile ? true : 0.5,
             pin: true,
             pinSpacing: true,
             anticipatePin: 1,
