@@ -128,7 +128,7 @@ export function ScrollHero() {
             daha fazlası.
           </h1>
           <p className="mt-5 text-[16px] leading-relaxed text-soft">
-            Özel kuvars eviye üretimini; malzemenin doğal karakteri, işlenmiş iç geometrisi ve kompozit dış gövde yaklaşımıyla bir araya getiriyoruz. Tezgâh üreticileri ve profesyonel uygulamacılar için malzeme, görünüm ve proje uyumu üzerine konuşulabilen bir ürün.
+            Doğal kuvarsın karakterini kompozit gövde yapısıyla buluşturuyor; tezgâh üreticileri ve profesyonel uygulamacılar için özel eviye çözümleri sunuyoruz.
           </p>
            <div className="mt-8 flex flex-wrap gap-3">
              <a
