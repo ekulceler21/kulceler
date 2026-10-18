@@ -93,10 +93,10 @@ export function ProductDetail() {
               WhatsApp ile Bilgi Alın
             </a>
             <a
-              className="inline-flex h-12 w-full items-center justify-center border border-border text-sm tracking-[0.12em] uppercase"
+              className="inline-flex h-12 w-full items-center justify-center border border-border text-sm tracking-[0.12em] uppercase text-center px-4"
               href={`mailto:${STORE.email}?subject=${encodeURIComponent(`Bilgi Talebi: ${product.name} (${variant.sku})`)}&body=${encodeURIComponent(`Merhaba,\n\n"${product.name}" (${variant.sku} - ${variant.label}) ürünü hakkında bilgi, stok ve teklif almak istiyorum.\n\nTeşekkürler.`)}`}
             >
-              E-posta ile İletişim ({STORE.email})
+              E-posta ile İletişim
             </a>
           </div>
 
