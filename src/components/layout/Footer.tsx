@@ -24,12 +24,11 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <p className="text-xs tracking-[0.2em] text-muted uppercase">Koleksiyon</p>
+          <p className="text-xs tracking-[0.2em] text-muted uppercase">Gezinme</p>
           <ul className="mt-4 space-y-2 text-[15px] text-soft">
-            <li><Link className="hover:text-ice" to="/koleksiyon">Tüm ürünler</Link></li>
-            <li><Link className="hover:text-ice" to="/koleksiyon?kategori=Mermer">Mermer</Link></li>
-            <li><Link className="hover:text-ice" to="/koleksiyon?kategori=Traverten">Traverten</Link></li>
-            <li><Link className="hover:text-ice" to="/koleksiyon?kategori=Granit">Granit</Link></li>
+            <li><Link className="hover:text-ice" to="/">Ana Sayfa</Link></li>
+            <li><Link className="hover:text-ice" to="/koleksiyon">Koleksiyon</Link></li>
+            <li><Link className="hover:text-ice" to="/iletisim">İletişim</Link></li>
           </ul>
         </div>
         <div>
