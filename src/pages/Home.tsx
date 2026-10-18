@@ -38,7 +38,7 @@ export function Home() {
                 Dışta farklı bir yapı.
               </h2>
               <p className="mt-6 text-[18px] leading-relaxed text-soft">
-                Görünen estetik yüzey ile dış taşıyıcı katmanın birbirini tamamladığı bir eviye yaklaşımı. Gereksiz teknik karmaşa olmadan, gerçek ürünün ne sunduğunu gösteriyoruz.
+                {STORE.demoNotice}
               </p>
             </div>
             <div className="flex-shrink-0 self-center md:self-start pt-2">
