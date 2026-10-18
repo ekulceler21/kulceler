@@ -14,6 +14,22 @@ export function Home() {
       <ScrollHero />
 
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-6">
+        <div className="mb-12 text-center">
+          <p className="text-xs tracking-[0.3em] text-silver uppercase">3D Model Görüntüleyici</p>
+          <h2 className="font-display mt-2 text-3xl md:text-4xl text-ice">Özel Tasarım Eviye 3D</h2>
+          <p className="mt-2 text-sm text-muted">Modeli fare ile döndürebilirsiniz (Yakınlaştırma devre dışıdır).</p>
+        </div>
+        <div className="relative aspect-[16/9] w-full max-w-5xl mx-auto overflow-hidden border border-border bg-graphite shadow-2xl rounded-lg">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `<model-viewer src="${asset("/279d823b6a7dbcb051adf2e92f1af31d.glb")}" alt="3D Eviye Modeli" auto-rotate camera-controls disable-zoom interaction-prompt="none" style="width: 100%; height: 100%; background-color: #15191f;"></model-viewer>`
+            }}
+            className="w-full h-full"
+          />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-20 md:px-6">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-xs tracking-[0.28em] text-muted uppercase">Seçkiler</p>

@@ -5,11 +5,10 @@ declare namespace JSX {
     "model-viewer": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
       src?: string;
       alt?: string;
-      "camera-controls"?: boolean | string;
-      "disable-zoom"?: boolean | string;
-      "touch-action"?: string;
-      "shadow-intensity"?: string;
-      exposure?: string;
+      "auto-rotate"?: boolean | "";
+      "camera-controls"?: boolean | "";
+      "disable-zoom"?: boolean | "";
+      "interaction-prompt"?: string;
       style?: React.CSSProperties;
     }, HTMLElement>;
   }
