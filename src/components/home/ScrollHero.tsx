@@ -19,52 +19,95 @@ const PARTNER_LOGOS = [
   { src: asset("/media/calisco_logo_ing.png"), alt: "Calisco" },
 ];
 
+const FRAME_COUNT = 90;
+const currentFrame = (index: number) => asset(`/frames/frame_${String(index).padStart(3, "0")}.webp`);
+
 export function ScrollHero() {
   const reduced = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoWrapRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const video = videoRef.current;
+    const canvas = canvasRef.current;
     const section = sectionRef.current;
     const wrap = videoWrapRef.current;
-    if (!video || !section || !wrap || reduced) return;
+    if (!canvas || !section || !wrap || reduced) return;
+
+    const context = canvas.getContext("2d");
+    if (!context) return;
 
     let ctx: gsap.Context | undefined;
     let killed = false;
+    const images: HTMLImageElement[] = [];
+    let loadedCount = 0;
 
-    // Mobilde video currentTime güncellemeleri kasma yapabildiği için touch-action ve native playback rate optimizasyonu
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
+    const render = (index: number) => {
+      const img = images[index];
+      if (img && img.complete) {
+        const hRatio = canvas.width / img.width;
+        const vRatio = canvas.height / img.height;
+        const ratio = Math.max(hRatio, vRatio);
+        const centerShiftX = (canvas.width - img.width * ratio) / 2;
+        const centerShiftY = (canvas.height - img.height * ratio) / 2;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(img, 0, 0, img.width, img.height, centerShiftX, centerShiftY, img.width * ratio, img.height * ratio);
+      }
+    };
+
+    const handleResize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      context.scale(dpr, dpr);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    const loadFrames = () => {
+      for (let i = 1; i <= FRAME_COUNT; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        img.onload = () => {
+          loadedCount++;
+          if (loadedCount === 1) render(0);
+        };
+        images.push(img);
+      }
+    };
+
+    loadFrames();
 
     const setup = () => {
       if (killed) return;
-      const duration = video.duration || 10;
-      video.pause();
       ctx = gsap.context(() => {
+        ScrollTrigger.normalizeScroll(false);
+        const air = { frame: 0 };
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
             end: "+=2500",
-            scrub: true,
+            scrub: 0,
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
-            fastScrollEnd: true,
-            preventOverlaps: true,
           },
         });
-        tl.fromTo(
-          video,
-          { currentTime: 0 },
-          { currentTime: duration, ease: "none", duration: 1 },
-          0,
-        );
-        tl.fromTo(
+        tl.to(air, {
+          frame: FRAME_COUNT - 1,
+          snap: "frame",
+          ease: "none",
+          duration: 1,
+          onUpdate: () => {
+            requestAnimationFrame(() => render(Math.round(air.frame)));
+          },
+        });
+        tl.to(
           wrap,
-          { opacity: 1 },
           { opacity: 0, ease: "power1.out", duration: 0.2 },
           0.8,
         );
@@ -72,11 +115,12 @@ export function ScrollHero() {
       ScrollTrigger.refresh();
     };
 
-    if (video.readyState >= 1) setup();
-    else video.addEventListener("loadedmetadata", setup, { once: true });
+    const timer = setTimeout(setup, 300);
 
     return () => {
       killed = true;
+      clearTimeout(timer);
+      window.removeEventListener("resize", handleResize);
       ctx?.revert();
     };
   }, [reduced]);
@@ -100,15 +144,9 @@ export function ScrollHero() {
       </div>
 
       <div ref={videoWrapRef} className="absolute inset-0 z-[1]">
-        <video
-          ref={videoRef}
-          id="sink-video"
+        <canvas
+          ref={canvasRef}
           className="h-full w-full object-cover"
-          src={asset("/media/scrollkulceler.mp4")}
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden
         />
       </div>
 
