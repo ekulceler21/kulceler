@@ -21,6 +21,8 @@
 
 html {
   scroll-behavior: auto;
+  touch-action: manipulation;
+  overscroll-behavior-y: none;
 }
 
 body {

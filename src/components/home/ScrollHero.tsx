@@ -38,19 +38,23 @@ export function ScrollHero() {
       if (killed) return;
       const duration = video.duration || 10;
       video.pause();
+      
+      const isMobile = window.innerWidth < 768;
+      if (isMobile && typeof ScrollTrigger.normalizeScroll === "function") {
+        ScrollTrigger.normalizeScroll(true);
+      }
+
       ctx = gsap.context(() => {
-        const isMobile = window.innerWidth < 768;
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: isMobile ? "+=1200" : "+=3000",
-            scrub: isMobile ? 1 : 0.5,
+            end: isMobile ? "+=1000" : "+=3000",
+            scrub: isMobile ? 0.1 : 0.5,
             pin: true,
             pinSpacing: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
-            fastScrollEnd: false,
           },
         });
         tl.fromTo(
