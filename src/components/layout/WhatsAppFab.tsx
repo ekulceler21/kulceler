@@ -26,8 +26,8 @@ export function WhatsAppFab() {
 
   return (
     <div
-      className={`fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 md:right-6 md:bottom-6 transition-transform duration-300 ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0 pointer-events-none"
+      className={`fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 md:right-6 md:bottom-6 transition-all duration-500 ease-in-out ${
+        visible ? "translate-y-0 opacity-100 scale-100" : "translate-y-16 opacity-0 scale-95 pointer-events-none"
       }`}
     >
       <a
