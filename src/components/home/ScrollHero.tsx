@@ -96,7 +96,7 @@ export function ScrollHero() {
       className="relative h-dvh overflow-hidden bg-obsidian"
       aria-label="Külçeler eviye görsel giriş"
     >
-      <div className="bg-image-layer absolute inset-0 z-0">
+      <div className="bg-image-layer absolute inset-0 z-[1]" style={{ pointerEvents: "none" }}>
         <img
           src={asset("/media/sskulceler.png")}
           alt=""
@@ -107,20 +107,19 @@ export function ScrollHero() {
         <div className="absolute inset-0 bg-obsidian/40" />
       </div>
 
-      <div className="absolute inset-0 z-[1.5] flex items-center justify-center pointer-events-auto">
+      <div className="absolute inset-0 z-[2] flex items-center justify-center pointer-events-auto">
         {/* @ts-ignore */}
         <model-viewer
           src={asset("/media/model.glb")}
           alt="3D Eviye"
           camera-controls
           disable-zoom
-          touch-action="pan-y"
           interaction-prompt="none"
-          style={{ width: "100%", height: "100%", background: "transparent", touchAction: "none" }}
+          style={{ width: "100%", height: "100%", background: "transparent" }}
         />
       </div>
 
-      <div ref={videoWrapRef} className="absolute inset-0 z-[1]">
+      <div ref={videoWrapRef} className="absolute inset-0 z-[3]" style={{ pointerEvents: "none" }}>
         <video
           ref={videoRef}
           id="sink-video"
@@ -133,7 +132,7 @@ export function ScrollHero() {
         />
       </div>
 
-      <div className="pointer-events-none relative z-[3] flex h-full flex-col justify-between px-4 pt-24 pb-20 md:px-10 md:py-24">
+      <div className="pointer-events-none relative z-[4] flex h-full flex-col justify-between px-4 pt-24 pb-20 md:px-10 md:py-24">
         <div className="overflow-visible border-y border-white/15 py-4 my-2">
           <div className="marquee-track gap-16 pr-16 items-center">
             {[...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS].map((logo, i) => (
