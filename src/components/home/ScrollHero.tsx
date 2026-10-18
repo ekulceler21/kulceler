@@ -116,6 +116,10 @@ export function ScrollHero() {
           disable-zoom
           interaction-prompt="none"
           camera-target="auto auto auto"
+          camera-orbit="45deg 55deg 105%"
+          auto-rotate
+          rotation-per-second="30deg"
+          auto-rotate-delay="1000"
           touch-action="pan-y"
           style={{ width: "100%", height: "100%", background: "transparent", touchAction: "none", position: "relative", zIndex: 2 }}
         />
