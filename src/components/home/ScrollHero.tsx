@@ -117,7 +117,7 @@ export function ScrollHero() {
           interaction-prompt="none"
           camera-target="auto auto auto"
           touch-action="pan-y"
-          style={{ width: "100%", height: "100%", background: "transparent", touchAction: "none" }}
+          style={{ width: "100%", height: "100%", background: "transparent", touchAction: "none", position: "relative", zIndex: 2 }}
         />
       </div>
 
