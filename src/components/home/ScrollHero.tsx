@@ -31,11 +31,18 @@ export function ScrollHero() {
     const wrap = videoWrapRef.current;
     if (!video || !section || !wrap || reduced) return;
 
-    // Mobilde scroll ile video scrubbing tamamen devre dışı, video otomatik oynasın
+    // Mobilde video otomatik oynasın, bittiğinde sskulceler.png (wrap) ortaya çıksın
     const isMobile = window.innerWidth < 768;
     if (isMobile) {
+      video.loop = false;
       video.play().catch(() => {});
-      return;
+      const handleEnded = () => {
+        gsap.to(wrap, { opacity: 0, duration: 0.6, ease: "power1.out" });
+      };
+      video.addEventListener("ended", handleEnded);
+      return () => {
+        video.removeEventListener("ended", handleEnded);
+      };
     }
 
     let ctx: gsap.Context | undefined;
@@ -107,8 +114,6 @@ export function ScrollHero() {
           className="h-full w-full object-cover"
           src={asset("/media/scrollkulceler.mp4")}
           muted
-          autoPlay
-          loop
           playsInline
           preload="auto"
           aria-hidden
