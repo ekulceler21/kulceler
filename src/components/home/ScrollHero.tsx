@@ -134,7 +134,7 @@ export function ScrollHero() {
         />
       </div>
 
-      <div className="pointer-events-none relative z-[4] text-overlay flex h-full flex-col justify-between px-4 pt-24 pb-20 md:px-10 md:py-24">
+      <div className="pointer-events-none relative z-[4] text-overlay flex h-full flex-col justify-between px-4 pt-16 pb-20 md:px-10 md:py-24">
         <div className="overflow-visible border-y border-white/15 py-4 my-2">
           <div className="marquee-track gap-16 pr-16 items-center">
             {[...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS].map((logo, i) => (
@@ -149,15 +149,11 @@ export function ScrollHero() {
         </div>
 
         <div className="pointer-events-auto max-w-2xl">
-          <p className="text-xs tracking-[0.4em] text-silver uppercase">Özel Kuvars Eviye Üretimi</p>
           <h1 className="font-display mt-4 text-[40px] leading-[1.0] font-medium text-ice sm:text-5xl lg:text-[72px]">
             Bir eviyeden
             <br />
             daha fazlası.
           </h1>
-          <p className="mt-5 text-[16px] leading-relaxed text-soft">
-            Doğal kuvarsın karakterini kompozit gövde yapısıyla buluşturuyor; tezgâh üreticileri ve profesyonel uygulamacılar için özel eviye çözümleri sunuyoruz.
-          </p>
            <div className="mt-8 flex flex-wrap gap-3">
              <a
                href="#yapi"
