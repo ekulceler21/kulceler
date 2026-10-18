@@ -23,7 +23,6 @@ export function Home() {
             Tümünü gör
           </Link>
         </div>
-        <p className="mb-8 text-sm text-muted">{STORE.demoNotice}</p>
         <ProductGrid products={featured} />
       </section>
 
