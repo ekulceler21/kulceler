@@ -31,11 +31,15 @@ export function ScrollHero() {
     const wrap = videoWrapRef.current;
     if (!video || !section || !wrap || reduced) return;
 
+    // Mobilde scroll ile video scrubbing tamamen devre dışı, video otomatik oynasın
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      video.play().catch(() => {});
+      return;
+    }
+
     let ctx: gsap.Context | undefined;
     let killed = false;
-
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
 
     const setup = () => {
       if (killed) return;
@@ -46,13 +50,11 @@ export function ScrollHero() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=2500",
-            scrub: true,
+            end: "+=3000",
+            scrub: 0.5,
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
-            fastScrollEnd: true,
-            preventOverlaps: true,
           },
         });
         tl.fromTo(
@@ -105,6 +107,8 @@ export function ScrollHero() {
           className="h-full w-full object-cover"
           src={asset("/media/scrollkulceler.mp4")}
           muted
+          autoPlay
+          loop
           playsInline
           preload="auto"
           aria-hidden
