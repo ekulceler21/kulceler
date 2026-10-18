@@ -16,10 +16,8 @@ export const STORE = {
 } as const;
 
 export const NAV_LINKS = [
+  { to: "/", label: "Ana Sayfa" },
   { to: "/koleksiyon", label: "Koleksiyon" },
-  { to: "/koleksiyon?kategori=Mermer", label: "Mermer" },
-  { to: "/koleksiyon?kategori=Traverten", label: "Traverten" },
-  { to: "/koleksiyon?kategori=Granit", label: "Granit" },
   { to: "/iletisim", label: "İletişim" },
 ] as const;
 
