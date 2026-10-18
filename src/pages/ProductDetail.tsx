@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProductById, getProductBySlug } from "@/data/products";
 import { productInquiryMessage, whatsappUrl } from "@/lib/whatsapp";
 import { ProductGrid } from "@/components/product/ProductCard";
 import { STORE } from "@/data/site";
+import { asset } from "@/lib/asset";
 
 const statusLabel = {
   in_stock: "Stokta",
@@ -14,7 +15,6 @@ const statusLabel = {
 export function ProductDetail() {
   const { slug } = useParams();
   const product = slug ? getProductBySlug(slug) : undefined;
-  const [idx, setIdx] = useState(0);
   const [variantId, setVariantId] = useState(product?.variants[0]?.id ?? "");
 
   useEffect(() => {
@@ -22,7 +22,6 @@ export function ProductDetail() {
   }, [slug]);
 
   useEffect(() => {
-    setIdx(0);
     setVariantId(product?.variants[0]?.id ?? "");
   }, [product?.id]);
 
@@ -50,25 +49,17 @@ export function ProductDetail() {
     <div className="mx-auto max-w-7xl px-4 pt-24 pb-20 md:px-6">
       <div className="grid gap-10 lg:grid-cols-2">
         <div>
-          <div className="relative aspect-[4/5] overflow-hidden bg-graphite">
-            <img
-              src={product.images[idx]}
-              alt={`${product.name} görsel ${idx + 1}`}
-              className="product-img h-full w-full lg:cursor-zoom-in lg:hover:scale-110"
-            />
-          </div>
-          <div className="mt-3 flex gap-2">
-            {product.images.map((src, i) => (
-              <button
-                key={src + i}
-                type="button"
-                className={`h-20 w-16 overflow-hidden border ${i === idx ? "border-accent" : "border-border"}`}
-                onClick={() => setIdx(i)}
-                aria-label={`Görsel ${i + 1}`}
-              >
-                <img src={src} alt="" className="h-full w-full object-cover" />
-              </button>
-            ))}
+          <div className="relative aspect-[4/5] overflow-hidden bg-graphite border border-border">
+            {React.createElement("model-viewer", {
+              src: asset("/279d823b6a7dbcb051adf2e92f1af31d.glb"),
+              alt: product.name,
+              "camera-controls": true,
+              "disable-zoom": true,
+              "touch-action": "pan-y",
+              "shadow-intensity": "1",
+              exposure: "1",
+              style: { width: "100%", height: "100%", backgroundColor: "#15191f" }
+            })}
           </div>
         </div>
 
