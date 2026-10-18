@@ -106,7 +106,7 @@ export function ScrollHero() {
         />
       </div>
 
-      <div className="pointer-events-none relative z-[3] flex h-full flex-col justify-between px-4 pt-32 pb-20 md:px-10 md:py-24">
+      <div className="pointer-events-none relative z-[3] flex h-full flex-col justify-between px-4 pt-24 pb-20 md:px-10 md:py-24">
         <div className="overflow-visible border-y border-white/15 py-4 my-2">
           <div className="marquee-track gap-16 pr-16 items-center">
             {[...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS].map((logo, i) => (
