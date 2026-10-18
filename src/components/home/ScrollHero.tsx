@@ -44,7 +44,7 @@ export function ScrollHero() {
 
     const render = (index: number) => {
       const img = images[index];
-      if (img && img.complete) {
+      if (img && img.complete && img.naturalWidth > 0) {
         const hRatio = canvas.width / img.width;
         const vRatio = canvas.height / img.height;
         const ratio = Math.max(hRatio, vRatio);
