@@ -44,13 +44,13 @@ export function ScrollHero() {
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: isMobile ? "+=1500" : "+=3000",
-            scrub: isMobile ? true : 0.5,
+            end: isMobile ? "+=1200" : "+=3000",
+            scrub: isMobile ? 1 : 0.5,
             pin: true,
+            pinSpacing: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
-            fastScrollEnd: true,
-            preventOverlaps: true,
+            fastScrollEnd: false,
           },
         });
         tl.fromTo(
