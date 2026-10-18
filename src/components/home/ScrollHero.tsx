@@ -107,7 +107,7 @@ export function ScrollHero() {
         <div className="absolute inset-0 bg-obsidian/40" />
       </div>
 
-      <div className="absolute inset-0 z-[2] flex items-center justify-center pointer-events-auto">
+      <div className="absolute inset-0 z-[2] flex items-center justify-center pointer-events-auto" style={{ touchAction: "none" }}>
         {/* @ts-ignore */}
         <model-viewer
           src={asset("/media/model.glb")}
@@ -115,15 +115,17 @@ export function ScrollHero() {
           camera-controls
           disable-zoom
           interaction-prompt="none"
-          style={{ width: "100%", height: "100%", background: "transparent" }}
+          camera-target="auto auto auto"
+          touch-action="pan-y"
+          style={{ width: "100%", height: "100%", background: "transparent", touchAction: "none" }}
         />
       </div>
 
-      <div ref={videoWrapRef} className="absolute inset-0 z-[3]" style={{ pointerEvents: "none" }}>
+      <div ref={videoWrapRef} className="absolute inset-0 z-[3] pointer-events-none" style={{ pointerEvents: "none" }}>
         <video
           ref={videoRef}
           id="sink-video"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover pointer-events-none"
           src={asset("/media/scrollkulceler.mp4")}
           muted
           playsInline
@@ -132,7 +134,7 @@ export function ScrollHero() {
         />
       </div>
 
-      <div className="pointer-events-none relative z-[4] flex h-full flex-col justify-between px-4 pt-24 pb-20 md:px-10 md:py-24">
+      <div className="pointer-events-none relative z-[4] text-overlay flex h-full flex-col justify-between px-4 pt-24 pb-20 md:px-10 md:py-24">
         <div className="overflow-visible border-y border-white/15 py-4 my-2">
           <div className="marquee-track gap-16 pr-16 items-center">
             {[...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS, ...PARTNER_LOGOS].map((logo, i) => (
